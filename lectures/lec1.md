@@ -8,10 +8,11 @@ author: Mohamed Ghalwash
 year: 2025-2026
 venue: Zewail City
 mdc: true
+lecture: 1
 ---
 
-# Speech Recognition
-# (DSAI 456)
+# Speech Recognition <br> (DSAI 456)
+# Lecture 1 
 
 Mohamed Ghalwash
 <Email v="mghalwash@zewailcity.edu.eg" />
@@ -33,15 +34,7 @@ layout: top-title
   
   _e.g: 'c' can be mapped to phone 'k' or phone 's'_
 
-![sound-orthography dictionary](./images/ips.png)
-
-- Time-aligned transcription: mapping between waveform and phones (TIMIT corpus)
-
-- Articulatory phonetics
-  
-	- consonant vs vowel 
-
-	- syllable 
+![sound-orthography dictionary](./images/ips.png){width=320}
 
 <BottomBar/>
 
@@ -94,8 +87,7 @@ titlewidth: is-2
 
   - The rime, or rhyme, is the nucleus plus coda
 
-![alt text](./images/syllable.png)
-
+![alt text](./images/syllable.png){width=500}
 
 <BottomBar/>
 
@@ -189,11 +181,17 @@ layout: top-title
 <BottomBar/>
 
 ---
-layout: image-right
-image: ./images/sound-waves.png
+# layout: image-right
+# image: ./images/sound-waves.png
+layout: two-cols-title
+columns: is-8
 ---
 
+:: title :: 
+
 # Pitch and Loudness
+
+:: left :: 
 
 - Pitch (Hz): pitch is our perception of the frequency of the sound wave, meaning how high or low a sound seems to be
   
@@ -204,6 +202,10 @@ image: ./images/sound-waves.png
 - Loudness (decibel dB) is a measure of intensity $I$ of sound ($I \alpha A^2$)
 
 <!-- https://www.youtube.com/watch?v=eA19gFOH1JA -->
+
+:: right ::
+
+<img src="./images/sound-waves.png" width="85%"/>
 
 <BottomBar/>
 

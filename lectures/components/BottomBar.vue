@@ -20,7 +20,7 @@ defineProps({
 
 <template>
   <div v-if="$slidev.configs.title" class="bg-barBottom flex absolute w-full bottom-0 left-0 py-0.5 px-2 text-sm flex-items-center">
-    <div class="grid grid-cols-3 gap-15 h-full pl-2 flex">
+    <div class="grid grid-cols-5 gap-8 h-full pl-2 flex">
      {{ $slidev.configs.author }} 
      <div class="divider"></div> 
      {{ $slidev.configs.title }}
@@ -28,6 +28,8 @@ defineProps({
      {{ $slidev.configs.year }}
      <div class="divider"></div> 
      {{ $slidev.configs.venue }}
+     <div class="divider"></div> 
+     Lecture {{ $slidev.configs.lecture }}
     </div>    
   </div>
 </template>
@@ -42,10 +44,10 @@ defineProps({
 }
 
 .bg-barBottom {
-  background:  hwb(200 3% 39%);
+  background:  hwb(200 33% 5%);
   background-size: 180% 180%;
   opacity: 1.0;
-  color:azure;
+  color:rgb(0, 8, 8);
 }
 
 @keyframes gradient-animation {

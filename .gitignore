@@ -26,6 +26,7 @@ share/python-wheels/
 *.egg
 *.sol
 *.pdf
+*.py
 *.DS_Store
 MANIFEST
 
