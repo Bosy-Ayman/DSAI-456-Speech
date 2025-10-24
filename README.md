@@ -29,7 +29,7 @@ Week | Date |Topic | Contents | Lecture | Assignment
 2| 09-30 | Foundations | phonetics and signals, frequency, amplitude, period, analog to digital, sampling and quantization, pitch, intensity | [Lecture 1](lectures/lec1.md) | [Assignment 1](assignments/assign1.md)
 3| 10-07 | Acoustic Features | Discrete and fast Fourier transform,  time and frequency domain, freq spectrum, spectrogram, Mel scale | [Lecture 2](lectures/lec2.md) | [Assignment 2](assignments/assign2.md)
 4| 10-14 | Acoustic Features | Mel filter bank, windowing, MFCC | [Lecture 3](lectures/lec3.md)  | [Assignment 3](assignments/assign3.md)
-5| 10-21 | Signal Processing | Gaussian mixture models  | [Lecture XX] | [Assignment XX]
+5| 10-21 | Signal Processing | Gaussian mixture models  | [Lecture 4](lectures/lec4.md) | [Assignment 4](assignments/assign4.md)
 6| | Signal Processing | Hidden Markov models | [Lecture XX] | [Assignment XX]
 7| | CNN, Enc-Dec | Convolution neural network  for audio and ASR evaluation, Encoder decoder architecture for audio, training, inference, and evaluation | [Lecture XX] | [Assignment XX]
 8| | Midterm | | | 
