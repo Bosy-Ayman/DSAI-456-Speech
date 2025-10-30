@@ -30,15 +30,16 @@ Week | Date |Topic | Contents | Lecture | Assignment
 3| 10-07 | Acoustic Features | Discrete and fast Fourier transform,  time and frequency domain, freq spectrum, spectrogram, Mel scale | [Lecture 2](lectures/lec2.md) | [Assignment 2](assignments/assign2.md)
 4| 10-14 | Acoustic Features | Mel filter bank, windowing, MFCC | [Lecture 3](lectures/lec3.md)  | [Assignment 3](assignments/assign3.md)
 5| 10-21 | Signal Processing | Gaussian mixture models  | [Lecture 4](lectures/lec4.md) | [Assignment 4](assignments/assign4.md)
-6| | Signal Processing | Hidden Markov models | [Lecture XX] | [Assignment XX]
-7| | CNN, Enc-Dec | Convolution neural network  for audio and ASR evaluation, Encoder decoder architecture for audio, training, inference, and evaluation | [Lecture XX] | [Assignment XX]
-8| | Midterm | | | 
-9| | CTC | Connectionist temporal classification overview,  training and inference | [Lecture XX] | [Assignment XX]
-10| | CTC | CTC hybrid with Enc-Dec and RNN| [Lecture XX] | [Assignment XX]
-11| | TTS | Text to speech (TTS), use audio codec to learn tokens, ENCODEC model, vector quantization, residual vector quantization, generating audio with 2-stage language model (VALL-E), evaluation | [Lecture XX] | [Assignment XX]
-12| | Paper Review | Students review recent papers about speech regonition and present to the entire class | | 
-13| | Paper Review | Students review recent papers about speech regonition and present to the entire class | | 
-14| | Final | | | 
+6| 10-28 | Signal Processing | Hidden Markov models, evaluation problem | [Lecture 5](lectures/lec5.md) | No assignment as preparation for the quiz
+7| 11-4 | Signal Processing | HMM, evaluation, decoder, and learning problems| [Lecture XX] | [Assignment XX]
+8| 11-11 | Midterm | | | 
+9|  | CNN, Enc-Dec | Convolution neural network  for audio and ASR evaluation, Encoder decoder architecture for audio, training, inference, and evaluation | [Lecture XX] | [Assignment XX]
+10|  | CTC | Connectionist temporal classification overview,  training and inference | [Lecture XX] | [Assignment XX]
+11|  | CTC | CTC hybrid with Enc-Dec and RNN| [Lecture XX] | [Assignment XX]
+12|  | TTS | Text to speech (TTS), use audio codec to learn tokens, ENCODEC model, vector quantization, residual vector quantization, generating audio with 2-stage language model (VALL-E), evaluation | [Lecture XX] | [Assignment XX]
+13|  | Paper Review | Students review recent papers about speech regonition and present to the entire class | | 
+14|  | Paper Review | Students review recent papers about speech regonition and present to the entire class | | 
+15|  | Final | | | 
 
 Please note that the syllabus content is subject to change throughout the semester. Topics may be added or removed based on the instructor’s discretion, student progress, and available time. Your feedback and participation will inform these adjustments to ensure alignment with course goals and schedule constraints.
 
