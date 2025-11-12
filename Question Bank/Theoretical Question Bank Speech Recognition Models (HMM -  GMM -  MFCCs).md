@@ -167,6 +167,328 @@ These questions ask you to compare and contrast key concepts.
 |---|---|---|---|
 |**Window Size (n_fft)**|High Time Resolution  <br>Low Frequency Resolution|Low Time Resolution  <br>High Frequency Resolution|Controls detail in time vs frequency|
 |**Hop Length (Overlap)**|Smooth, detailed in time  <br>Slower computation|Faster  <br>Rough, may miss short events|Controls smoothness of time tracking|
+
+## Part 1: Phonetics and Acoustics
+
+### Understanding
+
+1. **What is a "phone"** in the context of phonetics? How does it relate to an "alphabet"?
+    
+    - A **phone** is a basic speech sound. It is a theoretical unit used to represent the pronunciation of a word as a string of sounds (Sec 14.1).
+        
+    - It relates to an alphabet in that a _phonetic alphabet_ (like IPA or ARPAbet) provides a standard set of symbols to transcribe these sounds. Unlike a standard orthographic alphabet (like English), where the mapping between letters and sounds is ambiguous (e.g., the letter 'c' is [k] in "cougar" but [s] in "cell", or 'gh' is [f] in "tough" but silent in "though"), a phonetic alphabet provides a consistent, one-to-one mapping between a symbol and a phone. This consistency is essential for computational modeling (Sec 14.1).
+        
+2. **What is a formant?** Explain the relationship between the first two formants (F1, F2) and vowel identity (e.g., for [iy], [ae], [uw]).
+    
+    - A **formant** is a frequency band that is particularly amplified by the vocal tract due to its resonant properties. It is a major spectral peak that appears as a dark bar on a spectrogram (Sec 14.4.5).
+        
+    - The first two formants (F1 and F2) are the primary acoustic cues for vowel identity. Their specific frequencies are determined by the shape of the vocal tract, which is controlled by the tongue's position (Sec 14.4.6).
+        
+        - **F1 (First Formant):** Correlates inversely with vowel height (tongue height). A high tongue position (like [iy] or [uw]) creates a large resonant cavity in the pharynx, resulting in a _low F1 frequency_. A low tongue position (like [ae]) creates a smaller pharyngeal cavity, resulting in a _high F1 frequency_.
+            
+        - **F2 (Second Formant):** Correlates with vowel frontness/backness (tongue advancement). A front tongue position (like [iy] or [ae]) creates a small resonant cavity in the front of the mouth, resulting in a _high F2 frequency_. A back tongue position (like [uw]) creates a larger oral cavity, resulting in a _low F2 frequency_.
+            
+    - **Examples** (from Fig 14.21, 14.24):
+        
+        - **[iy] (tea):** High, front vowel $\rightarrow$ **Low F1**, **High F2**
+            
+        - **[ae] (cat):** Low, front vowel $\rightarrow$ **High F1**, **High F2**
+            
+        - **[uw] (moo):** High, back vowel $\rightarrow$ **Low F1**, **Low F2**
+            
+3. **Define prosody.** What are the primary acoustic correlates of prosody in speech?
+    
+    - **Prosody** is the study of the intonational and rhythmic aspects of language, often spanning syllables, words, and phrases. It involves how speakers use acoustic properties to convey pragmatic or affective meaning (e.g., the difference between a statement and a question, emphasis, or sarcasm) (Sec 14.3).
+        
+    - The primary acoustic correlates are:
+        
+        - **F0 (fundamental frequency):** Perceived by humans as **pitch**.
+            
+        - **Energy (or Intensity):** Perceived by humans as **loudness**.
+            
+        - **Duration:** The length of phones or syllables, which relates to the rhythm and timing of speech (Sec 14.3).
+            
+4. **What is the "source-filter model"** of speech production? What parts of the vocal apparatus correspond to the "source" and the "filter"?
+    
+    - The **source-filter model** (Sec 14.4.6) is a model that explains speech acoustics by separating the sound-generating mechanism (the "source") from the sound-shaping mechanism (the "filter").
+        
+    - **Source:** Corresponds to the **larynx and vocal folds** for _voiced_ sounds. The vocal folds vibrate, producing a periodic _glottal pulse_ (the source signal) rich in harmonics. For _unvoiced_ sounds, the source is the turbulent noise created by a constriction elsewhere in the vocal tract (e.g., at the alveolar ridge for [s]).
+        
+    - **Filter:** Corresponds to the **vocal tract** (the cavities of the pharynx, mouth, and nose). The shape of this filter, determined by the position of the tongue, lips, and velum, acts as a resonator. It amplifies (resonates) certain frequencies from the source signal and dampens others. These amplified frequencies are the formants.
+        
+
+### Comparing
+
+5. **Compare and contrast consonants and vowels** from an articulatory perspective (i.e., how are they physically produced differently?).
+    
+    - **Consonants:** Produced by creating a significant **restriction or complete blockage** of the airflow at some point in the vocal tract (e.g., with the lips, tongue, or teeth). This obstruction can be complete (stops), partial (fricatives), or involve diverting air (nasals). They can be voiced or unvoiced (Sec 14.2).
+        
+    - **Vowels:** Produced with **less obstruction** in the vocal tract, allowing air to flow relatively freely. They are characterized by the _position_ of the tongue (height and backness) and the shape of the lips (rounded or unrounded), which shapes the vocal tract as a whole. They are usually voiced and are more sonorous than consonants (Sec 14.2).
+        
+6. **What is the difference between a "voiced" and an "unvoiced" sound?** Give one example of a voiced/unvoiced consonant pair.
+    
+    - **Voiced** sounds are made with the vocal folds held close together and _vibrating_ as air passes through the glottis. This vibration creates a periodic sound wave (Sec 14.2).
+        
+    - **Unvoiced** (or voiceless) sounds are made with the vocal folds held far apart, so they _do not vibrate_. The sound source is typically turbulent air created by a constriction (Sec 14.2).
+        
+    - **Example pairs:**
+        
+        - [ ] (voiced) and [t] (unvoiced)
+            
+        - [z] (voiced) and [s] (unvoiced)
+            
+        - [b] (voiced) and [p] (unvoiced)
+            
+        - [v] (voiced) and [f] (unvoiced)
+            
+7. Compare a "stop" consonant (like [p] or [d]) with a "fricative" consonant (like [s] or [f]). How do their acoustic properties differ in a waveform or spectrogram?
+    
+    - **Articulatory Difference (Manner):**
+        
+        - **Stop (or Plosive):** Airflow is _completely blocked_ for a short period (the "closure"), building up pressure, which is then followed by an _explosive release_ (Sec 14.2).
+            
+        - **Fricative:** Airflow is _constricted_ through a narrow channel, but not completely blocked. This constriction creates _turbulent, hissing_ airflow (Sec 14.2).
+            
+    - **Acoustic Difference:**
+        
+        - **Stop:** Appears in a waveform as a period of _silence or near-silence_ (the "stop gap"), followed by a _short, sharp burst of energy_ (the release). On a spectrogram, this looks like a blank gap followed by a brief, vertical spike of broadband energy.
+            
+        - **Fricative:** Appears in a waveform as _noisy, irregular, and random-looking_ energy, lacking the clear periodic structure of a vowel (Sec 14.4.4, Fig 14.16). On a spectrogram, it appears as a "cloud" of broadband, static-like energy, especially at higher frequencies.
+            
+8. **What is the difference between "pitch accent" and "lexical stress"?**
+    
+    - **Lexical Stress:** A _dictionary_ property of a word, fixed by the language. It identifies the syllable that _can_ be emphasized if the word is to be made prominent. For example, the lexical stress of "surprised" is on the second syllable ([sur-**prised**]) (Sec 14.3.1).
+        
+    - **Pitch Accent:** An _utterance_ property, chosen by the speaker. It is the linguistic marker used to make a word or syllable perceptually _prominent_ (louder, longer, or with pitch variation) within a sentence to convey focus or new information. This pitch accent is always realized on the syllable that carries the lexical stress. For example, in "**I** went to the store," the focus is on the speaker, while in "I went to the **store**," the focus is on the destination (Sec 14.3.1).
+        
+
+### Give Reason
+
+9. **Give two reasons** why a phonetic alphabet (like IPA or ARPAbet) is used in speech processing instead of just using English orthography (letters).
+    
+    - **1. Ambiguity:** The mapping from English letters to sounds is "opaque" (Sec 14.1). A single letter or combination of letters can represent many different sounds (e.g., 'c' in "cell" is [s], but 'c' in "cougar" is [k]; 'ea' in "tea" is [iy], but 'ea' in "bear" is [eh]).
+        
+    - **2. Consistency:** A phonetic alphabet provides a consistent, one-to-one mapping where one symbol _always_ represents one specific phone, regardless of the word. This is essential for building computational models that need to map acoustic signals to a consistent, unambiguous representation of speech sounds (Sec 14.1).
+        
+10. **Give a reason** why the shape of the vocal tract (the "filter") is more important for identifying _which_ phone is being spoken than the fundamental frequency (the "source").
+    
+    - The **source** (vocal folds) determines the fundamental frequency (F0), which we perceive as **pitch**. A speaker can say the same vowel, like [iy], at a high pitch (e.g., a child) or a low pitch (e.g., an adult male), but it remains an [iy] (Sec 14.4.6). The F0 varies greatly with intonation and speaker identity.
+        
+    - The **filter** (vocal tract shape) determines the **formant frequencies**. It is this unique formant structure (the spectral signature) that our ears use to distinguish _which_ phone is being spoken (e.g., to tell [iy] apart from [ae]). This formant pattern is the core identifier of the phone, relatively independent of the pitch (Sec 14.4.6).
+        
+
+## Part 2: Feature Extraction (Log-Mel & MFCC)
+
+### Write the Steps
+
+1. **List the key steps** to convert a raw analog speech waveform into a sequence of **Log Mel Spectrum vectors**. (Start from sampling). _(Based on Sec 14.5)_
+    
+    1. **Sampling & Quantization:** The analog waveform is sampled (e.g., at 16kHz) and quantized (e.g., to 16-bit integers) to create a digital signal $x[n]$.
+        
+    2. **Windowing:** The digital signal is divided into short, overlapping frames (e.g., 25ms frame, 10ms stride). This is done because speech is "non-stationary" (its properties change over time), but is assumed to be "stationary" (properties are constant) within this short window. A window function (like a Hamming window) is applied to each frame.
+        
+    3. **Discrete Fourier Transform (DFT/FFT):** The (magnitude) spectrum of each windowed frame is computed using the DFT, resulting in a vector of energy values at different linear frequency bins.
+        
+    4. **Mel Filter Bank:** A bank of triangular filters, spaced according to the Mel scale (`mel(f) = 1127 ln(1 + f/700)`), is applied to the magnitude spectrum. This groups the energy into perceptually relevant frequency bands, focusing more on low frequencies.
+        
+    5. **Log:** The logarithm of the energy from each filter bank channel is taken. This compresses the dynamic range of the amplitudes, similar to how human hearing is more sensitive to small intensity changes at low amplitudes than at high ones (Sec 14.5.4). The result is the Log Mel Spectrum vector for that frame.
+        
+2. **Describe the process** of calculating **MFCCs** (Mel Frequency Cepstral Coefficients) _from_ a Log Mel Spectrum. What is the purpose of the final step (Inverse DFT / DCT)? _(Based on Sec 14.6)_
+    
+    1. **Start** with the Log Mel Spectrum vectors (the output of the Mel filter bank).
+        
+    2. **Take the Discrete Cosine Transform (DCT)** of this vector. (The DCT is a fast implementation of an Inverse DFT on real, even functions).
+        
+    3. **Keep** only a small number of the resulting coefficients (e.g., the first 12-13), discarding the higher-order coefficients. These are the MFCCs.
+        
+    
+    - **Purpose of the DCT:** This step has two main purposes:
+        
+        1. **De-correlation:** The Log Mel Spectrum energies (from adjacent filters) are highly correlated. The DCT transforms them into a set of de-correlated coefficients. This is crucial for subsequent statistical modeling, as GMMs with diagonal covariance matrices (which assume independence) are much simpler, more robust to train, and require less data than full covariance matrices (Sec 14.6).
+            
+        2. **Source-Filter Separation:** In the Log Mel Spectrum, the vocal tract _filter_ (formants) is represented by the slow-moving _envelope_ (low-frequency components), while the _source_ (pitch) is represented by the fast-moving _ripple_ (high-frequency components). The DCT transforms this into the "cepstral" domain, where the filter information is compacted into the first few (low) coefficients and the source information is in the higher coefficients. By keeping only the low coefficients, we effectively isolate the filter (formants) and discard the source (pitch) (Sec 14.6).
+            
+
+### Give Reason
+
+3. **Give a reason** why we apply a **windowing function** (like a Hamming window) to a frame of speech before performing the Discrete Fourier Transform (DFT).
+    
+    - We apply a window to extract a short-time portion of the speech signal, which we assume is "stationary" (its statistical properties are constant) (Sec 14.5.2). If we used a simple rectangular window, it would cut off the signal abruptly, creating sharp discontinuities at the frame edges. These discontinuities are not part of the real speech signal and introduce high-frequency artifacts (or "spectral leakage") into the spectrum computed by the DFT. A smooth window like the **Hamming window** tapers the signal to zero at the boundaries, avoiding these discontinuities and resulting in a cleaner, more accurate spectrum that reflects only the speech in that frame (Sec 14.5.2).
+        
+4. **Give a reason** why we use the **Mel scale** for speech recognition features instead of a linear frequency scale (Hz).
+    
+    - We use the Mel scale because **human hearing is not linear** (Sec 14.5.4); it is biologically inspired. Humans are much more sensitive to changes in low frequencies than in high frequencies (this is related to the physical layout of the cochlea). The Mel scale is a perceptual scale of pitch that mimics this human hearing response. By using Mel-spaced filters, which are narrow and dense at low frequencies and wide and sparse at high frequencies, we create a feature representation that emphasizes the low-frequency-regions where crucial phonetic information (like the first and second formants) resides, thus improving recognition performance (Sec 14.5.4).
+        
+5. **Give a reason** why **delta (velocity) and double-delta (acceleration) coefficients** are added to MFCC features.
+    
+    - Speech is an inherently dynamic signal, and the static MFCC vector for a single frame (a "snapshot" in time) does not capture how the signal is _changing_ (Sec 14.6).
+        
+        - **Deltas (velocity)** are added to capture the _rate of change_ (or slope) of the cepstral features. This captures the _trajectory_ of the speech articulators from one frame to the next.
+            
+        - **Double-deltas (acceleration)** are added to capture the _rate of change of the deltas_ (the curvature of the trajectory).
+            
+    - This dynamic information is crucial for distinguishing phones that are defined by their movement, such as the transition from a stop closure to a burst, or the changing formants of a diphthong (Sec 14.6).
+        
+
+### Understanding
+
+6. **What is a "cepstrum"?** How does it help to separate the source (pitch) from the filter (formants)?
+    
+    - The **cepstrum** is the "spectrum of the log of the spectrum" (the word is formed by reversing the first four letters of "spectrum") (Sec 14.6).
+        
+    - It separates the source and filter as follows:
+        
+        1. In the **log spectrum** of a speech frame, the **source** (glottal pulse/pitch) appears as a high-frequency _periodic ripple_ (the harmonics).
+            
+        2. The **filter** (vocal tract/formants) appears as the low-frequency _envelope_ or overall shape of the spectrum.
+            
+        3. When we take the "spectrum of this spectrum" (which is what the DCT/cepstrum calculation does), these two components are separated. The low-frequency envelope (the filter/formants) is compacted into the **low-order cepstral coefficients** (the first 12-13). The high-frequency ripple (the source/pitch) is moved to the **high-order cepstral coefficients**.
+            
+        4. By keeping only the low-order coefficients (which is what MFCCs are), we effectively isolate the filter information (essential for phone identity) and discard the source information (which varies with speaker and intonation) (Sec 14.6).
+            
+
+## Part 3: Gaussian Mixture Models (GMMs)
+
+### Understanding
+
+1. **What is a Gaussian Mixture Model (GMM)?**
+    
+    - A GMM is a powerful density estimation technique. It models a complex probability density function as a **convex combination (a weighted sum) of multiple simple Gaussian (Normal) distributions** (Sec 11.1, Sec 2.2).
+        
+    - Its formula is $p(\mathbf{x}) = \sum_{k=1}^{K} \pi_k \mathcal{N}(\mathbf{x} | \mu_k, \Sigma_k)$, where $\pi_k$ are the mixture weights which are positive and sum to 1. Each $\mathcal{N}(\mathbf{x} | \mu_k, \Sigma_k)$ is a single Gaussian "component" with its own mean $\mu_k$ and covariance $\Sigma_k$ (Sec 11.1, Eq 11.3; Sec 2.2, Eq 2.9).
+        
+2. **In the context of GMMs, what is a "responsibility" (or "posterior probability")?** How is it used in the EM algorithm?
+    
+    - The **responsibility** (denoted $r_{nk}$ or $h_m(t)$) is the posterior probability that a specific data point $\mathbf{x}_n$ was "generated" by a specific mixture component $k$, given the current model parameters. It quantifies how "responsible" component $k$ is for observing data point $\mathbf{x}_n$ (Sec 11.2.1; Sec 2.3, Eq 2.13).
+        
+    - It is calculated in the **E-step** of the EM algorithm. It is then used in the **M-step** as a "soft assignment" or a weight. This weight determines how much influence each data point $\mathbf{x}_n$ has on the re-estimation of the parameters ($\pi_k, \mu_k, \Sigma_k$) for the $k$-th component (Sec 11.3, Sec 2.3).
+        
+
+### Give Reason
+
+3. **Give a reason** why a GMM is often a more powerful model for speech features than a single Gaussian distribution.
+    
+    - A single Gaussian distribution is **unimodal** (it has only one peak). Speech features, even for a single phone, are often complex and **multimodal** (having multiple peaks or clusters). This multimodality can arise from speaker differences (e.g., male/female), coarticulation (the influence of neighboring phones), or acoustic variability (Sec 2.2; Sec 11.1, Fig 11.1). A GMM, being a sum of multiple Gaussians, can represent these arbitrarily complex, multimodal distributions much more accurately, whereas a single Gaussian would just average them all together into one broad, inaccurate model (Sec 2.4).
+        
+
+### Write the Steps
+
+4. **Outline the two main steps (E-step and M-step)** of the **Expectation-Maximization (EM) algorithm** used for training a GMM. What is the goal of each step? _(Based on Sec 11.3, Sec 2.3)_ The EM algorithm is an iterative process to find the maximum likelihood parameters for the GMM.
+    
+    1. **E-Step (Expectation):** Given the current model parameters ($\pi_k, \mu_k, \Sigma_k$), compute the "expected" assignments. This means **evaluating the responsibilities** ($r_{nk}$) for every data point $n$ and every component $k$. This step calculates $P(k | \mathbf{x}_n, \lambda)$, the "soft" probability of component $k$ being responsible for $\mathbf{x}_n$.
+        
+    2. **M-Step (Maximization):** Given these fixed responsibilities, update the model parameters to **maximize** the expected log-likelihood. This means **re-estimating the model parameters** ($\pi_k^{new}, \mu_k^{new}, \Sigma_k^{new}$) using the responsibilities as weights. These two steps are repeated until the model parameters converge (i.e., they don't change significantly).
+        
+5. **Write the M-step update formulas** for the mean ($\mu_k$), covariance ($\Sigma_k$), and mixture weight ($\pi_k$) of the $k$-th component in a GMM. _(Based on Sec 11.3, Eq 11.54-56; Sec 2.3, Eq 2.10-12)_
+    
+    - First, define the "total responsibility" for component $k$: $N_k = \sum_{n=1}^{N} r_{nk}$ (This is the effective number of data points assigned to component $k$).
+        
+    - **Mixture Weight:** $\pi_k^{new} = \frac{N_k}{N}$ (The proportion of the data that component $k$ is responsible for).
+        
+    - **Mean:** $\mu_k^{new} = \frac{1}{N_k} \sum_{n=1}^{N} r_{nk} \mathbf{x}_n$ (The weighted average of all data points, weighted by their responsibility to component $k$).
+        
+    - **Covariance:** $\Sigma_k^{new} = \frac{1}{N_k} \sum_{n=1}^{N} r_{nk} (\mathbf{x}_n - \mu_k^{new})(\mathbf{x}_n - \mu_k^{new})^T$ (The weighted covariance of all data points, relative to the new mean).
+        
+
+### Prove / Explain
+
+6. **Explain the update formula for the GMM means (**$\mu_k$**).** Prove that the new mean is a weighted average of all data points, and identify what the weights are (i.e., how much "responsibility" the component takes for each point).
+    
+    - **Formula:** $\mu_k^{new} = \frac{1}{N_k} \sum_{n=1}^{N} r_{nk} \mathbf{x}_n$
+        
+    - **Explanation:** This formula calculates the new mean of component $k$ as a **weighted average of all data points** in the dataset (Sec 11.2.2).
+        
+    - **The weight** for each data point $\mathbf{x}_n$ in this average is its responsibility $r_{nk}$, normalized by the total responsibility for that component $N_k$ (where $N_k = \sum_{n=1}^{N} r_{nk}$).
+        
+    - **Proof/Intuition:** A data point $\mathbf{x}_n$ that has a high responsibility $r_{nk}$ (i.e., it was "very likely" generated by component $k$) will have a large weight and strongly "pull" the new mean $\mu_k^{new}$ closer to it. A data point with a low $r_{nk}$ (it likely belongs to another component) will have very little influence on $\mu_k^{new}$. This is derived by taking the derivative of the expected log-likelihood (the function being maximized in the M-step) with respect to $\mu_k$, setting it to 0, and solving for $\mu_k$ (Sec 11.2.2, Thm 11.1).
+        
+
+## Part 4: Hidden Markov Models (HMMs)
+
+### Understanding
+
+1. **What are the five elements** that formally define a Hidden Markov Model (HMM), represented by $\lambda = (A, B, \pi, N, M)$? Describe what each element represents. _(Based on Sec II-B)_
+    
+    1. **N:** The number of **states** in the model (e.g., $S_1, ..., S_N$). These are the "hidden" part of the model.
+        
+    2. **M:** The number of distinct **observation symbols** per state (the alphabet size) for a discrete HMM.
+        
+    3. **A = {**$a_{ij}$**}:** The **State Transition Probability Distribution**. $a_{ij} = P(q_{t+1}=S_j | q_t=S_i)$ is the probability of moving from state $S_i$ to state $S_j$.
+        
+    4. **B = {**$b_j(k)$**}:** The **Observation Symbol Probability Distribution** (or "emission probabilities"). For a discrete HMM, $b_j(k) = P(v_k \text{ at } t | q_t=S_j)$ is the probability of emitting symbol $v_k$ while in state $S_j$. For a continuous HMM, this is a Probability Density Function (PDF), $b_j(\mathbf{O}_t)$, which is most commonly modeled by a GMM.
+        
+    5. $\pi = \{\pi_i\}$**:** The **Initial State Distribution**. $\pi_i = P(q_1=S_i)$ is the probability that the model starts in state $S_i$.
+        
+2. **What are the "three basic problems"** for HMMs that must be solved for them to be useful (as defined by Rabiner)? _(Based on Sec II-C)_
+    
+    - **Problem 1 (Evaluation):** Given an observation sequence $O$ and a model $\lambda$, efficiently compute $P(O|\lambda)$, the probability of the observation sequence given the model. (Solution: The Forward Algorithm).
+        
+    - **Problem 2 (Uncovering):** Given $O$ and $\lambda$, find the **optimal state sequence** $Q = q_1, q_2, ..., q_T$ that "best explains" the observations. (Solution: The Viterbi Algorithm).
+        
+    - **Problem 3 (Training):** Given one or more observation sequences $O$, adjust the model parameters $\lambda = (A, B, \pi)$ to **maximize** $P(O|\lambda)$. (Solution: The Baum-Welch Algorithm).
+        
+3. **What is the Markov assumption** as it applies to an HMM?
+    
+    - It is a **first-order assumption** that states the probability of transitioning to the next state $S_j$ at time $t+1$ depends _only_ on the current state $S_i$ at time $t$, and not on any states prior to time $t$ (Sec II).
+        
+    - $P(q_{t+1}=S_j | q_t=S_i, q_{t-1}=S_k, ...) = P(q_{t+1}=S_j | q_t=S_i) = a_{ij}$
+        
+    - This is a significant simplifying assumption. In reality, speech has longer-term dependencies, but the first-order assumption works surprisingly well and, critically, makes the computations (like the Forward and Viterbi algorithms) tractable.
+        
+
+### Comparing
+
+4. **Compare an "ergodic" HMM with a "left-right" HMM.** Which one is more suitable for modeling speech, and why?
+    
+    - **Ergodic HMM:** A fully connected model where every state can be reached from every other state (all $a_{ij} > 0$). This model is suitable for signals that are stationary or can transition between any set of properties at any time. It does not have a strong notion of "beginning" or "end" (Sec IV, Fig 7a).
+        
+    - **Left-Right HMM (Bakis Model):** A model where states proceed sequentially in one direction. The state index increases or stays the same ($a_{ij}=0$ for $j < i$), and it always starts in state 1 ($\pi_1=1$). This model is **more suitable for modeling speech** (like a single word) because the speech signal is inherently non-stationary and has a clear temporal progression. The sounds in a word proceed in an ordered sequence (from the beginning of the word to the end) and do not go backward (Sec IV, Fig 7b).
+        
+5. **What is the difference between a "discrete observation HMM" and a "continuous observation HMM"?** How are GMMs used in continuous HMMs?
+    
+    - **Discrete HMM:** The observation $O_t$ is a _discrete symbol_ (e.g., index 'k') from a finite codebook. The emission probability $B$ is a simple probability matrix $b_j(k)$ (Sec II-B). This requires a Vector Quantization (VQ) step to map continuous features (like MFCCs) to these discrete symbols, which can cause a loss of information ("quantization error") (Sec VI-D).
+        
+    - **Continuous HMM:** The observation $O_t$ is a _continuous vector_ (e.g., an MFCC vector). The emission probability $b_j(\mathbf{O}_t)$ is a continuous Probability Density Function (PDF) that models the distribution of those vectors directly (Sec IV-A).
+        
+    - **GMMs in HMMs:** GMMs are the most common and effective way to model the continuous PDF $b_j(\mathbf{O}_t)$. Each hidden state $j$ in the HMM is assigned its _own GMM_ (with its own set of means, covariances, and weights) to model the complex, multi-modal distribution of feature vectors that are observed when the model is in that state (Sec IV-A, Eq 49).
+        
+
+### Write the Steps
+
+6. **Describe the high-level iterative process of the Baum-Welch algorithm** (EM for HMMs). What variables does it use from the Forward and Backward algorithms to re-estimate the HMM parameters (A and B)? _(Based on Sec III-C)_ The Baum-Welch algorithm is a specific instance of the Expectation-Maximization (EM) algorithm, applied to train the parameters of an HMM.
+    
+    1. **Initialize** the model $\lambda = (A, B, \pi)$ (e.g., with random or uniform values).
+        
+    2. **E-Step (Expectation):** Given the current model $\lambda$ and an observation sequence $O$:
+        
+        - Run the **Forward algorithm** to compute all $\alpha_t(i) = P(O_1...O_t, q_t=S_i | \lambda)$.
+            
+        - Run the **Backward algorithm** to compute all $\beta_t(i) = P(O_{t+1}...O_T | q_t=S_i, \lambda)$.
+            
+        - Use these to calculate the **Posterior Probabilities** (responsibilities):
+            
+            - $\gamma_t(i) = P(q_t=S_i | O, \lambda) = \frac{\alpha_t(i)\beta_t(i)}{P(O|\lambda)}$ (The probability of being in state $i$ at time $t$, given the _entire_ sequence).
+                
+            - $\xi_t(i, j) = P(q_t=S_i, q_{t+1}=S_j | O, \lambda) = \frac{\alpha_t(i)a_{ij}b_j(O_{t+1})\beta_{t+1}(j)}{P(O|\lambda)}$ (The probability of transitioning $i \to j$ at time $t$, given the _entire_ sequence).
+                
+    3. **M-Step (Maximization):** Re-estimate the parameters using these expected counts:
+        
+        - $\bar{a}_{ij} = \frac{\sum_{t=1}^{T-1} \xi_t(i, j)}{\sum_{t=1}^{T-1} \gamma_t(i)}$ (Expected number of transitions from $i \to j$ / Expected number of transitions _from_ $i$).
+            
+        - $\bar{b}_j(k) = \frac{\sum_{t=1, O_t=v_k}^{T} \gamma_t(j)}{\sum_{t=1}^{T} \gamma_t(j)}$ (Expected times in state $j$ seeing symbol $k$ / Expected total times in state $j$).
+            
+    4. Set $\lambda = \bar{\lambda}$ (the new model) and repeat from the E-Step until the model's likelihood $P(O|\lambda)$ converges.
+        
+
+### Give Reason
+
+7. **Give a reason** why a scaling procedure is _required_ when implementing the Forward-Backward algorithm for long observation sequences.
+    
+    - The forward probability $\alpha_t(i)$ is a sum of products of probabilities (the $a_{ij}$ and $b_j(O_t)$ terms). Since all these probabilities are less than 1, as the time $t$ increases, $\alpha_t(i)$ decreases _exponentially_ toward zero (Sec V-A). For a long sequence (e.g., $T=100$), this value becomes smaller than the smallest positive number the computer can represent, leading to an **arithmetic underflow** (it is rounded to 0). A scaling procedure (which normalizes the $\alpha_t(i)$ values at each time step) is required to keep the intermediate $\alpha_t(i)$ and $\beta_t(i)$ values within the computer's dynamic range, preventing this underflow and allowing the computation to complete correctly.
+        
+8. **Give a reason** why, for connected word recognition, it is better to train word models on _continuous_ speech rather than on isolated words.
+    
+    - Words spoken in isolation do not capture the **coarticulation** effects that occur at word boundaries in connected speech. The acoustic properties of the _end_ of one word and the _beginning_ of the next are influenced by each other (e.g., the 's' in "this" and the 's' in "simple" might merge). Training on isolated words would create models that don't know how to handle these inter-word transitions. Training on connected speech strings (and using a procedure to segment them, like Viterbi alignment) allows the HMMs to learn from realistic examples of these boundary-condition acoustics, making them much more robust for recognizing continuous speech (Sec VII-C).
 ## Part 3: Mathematical Problem Questions
 
 These questions require you to apply the formulas from the texts.
