@@ -108,7 +108,7 @@ A GMM's probability density is the weighted sum of the densities of its individu
     (Where $\pi_k$ is the weight of component $k$, and $\sum \pi_k = 1$)
     
 
-Worked Example: Calculate $p(x=3)$
+**Worked Example: Calculate $p(x=3)$**
 
 Problem: Given a 1D GMM with 2 components, calculate the probability density $p(x)$ for a data point $x = 3$.
 
