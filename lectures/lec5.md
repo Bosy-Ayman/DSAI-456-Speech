@@ -19,7 +19,6 @@ lecture: 5
 
 # Speech Recognition <br> (DSAI 456)
 ## Lecture 5
-
 Mohamed Ghalwash
 <Email v="mghalwash@zewailcity.edu.eg" />
 
@@ -30,7 +29,7 @@ layout: top-title
 :: title :: 
 
 # Lecture 4 Recap 
-
+qsqsd
 :: content :: 
   
 - GMM: Mixture of $k$ Gaussians
