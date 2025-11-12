@@ -240,7 +240,7 @@ Problem: Given the following GMM and data, compute the updated parameters after 
 
 **Solution:**
 
-**1. E-Step: Calculate Responsibilities**
+==**1. E-Step: Calculate Responsibilities**==
 
 - **For data point $x_1 = 2$:**
     
@@ -271,7 +271,7 @@ Problem: Given the following GMM and data, compute the updated parameters after 
         - $r_{2,2} = 0.121 / 0.123 \approx 0.98$
             
 
-**2. M-Step: Re-estimate Parameters**
+==**2. M-Step: Re-estimate Parameters**==
 
 - **Responsibility Matrix:**
     
@@ -487,138 +487,6 @@ Solution:
 - $P(O | \lambda) = \alpha_2(1) + \alpha_2(2)$
     
 - $P(O | \lambda) = 0.144 + 0.0544 = 0.1984$
-    
-
-### C. HMM Decoding: The Viterbi Algorithm
-
-Concept:
-
-Finds the single most likely sequence of hidden states (the "Viterbi path") for a given observation sequence. It is identical to the Forward algorithm but replaces the sum operation with max.
-
-**Core Variables:**
-
-- $\delta_t(i)$: The highest probability of any single path ending in state $i$ at time $t$.
-    
-- $\psi_t(i)$: A "backpointer" that stores which state _led to_ that highest probability.
-    
-
-**Formulas:**
-
-1. Initialization ($t=1$):
-    
-    $\delta_1(i) = \pi_i b_i(O_1)$
-    
-    $\psi_1(i) = 0$
-    
-2. Induction (for $t=2$ to $T$):
-    
-    $\delta_t(j) = \max_{i} [\delta_{t-1}(i) a_{ij}] \cdot b_j(O_t)$
-    
-    $\psi_t(j) = \arg\max_{i} [\delta_{t-1}(i) a_{ij}]$
-    
-3. **Termination:**
-    
-    - Prob. of best path: $P^* = \max_{i} [\delta_T(i)]$
-        
-    - Best final state: $q_T^* = \arg\max_{i} [\delta_T(i)]$
-        
-4. **Backtracking (for $t=T-1$ to $1$):**
-    
-    - $q_t^* = \psi_{t+1}(q_{t+1}^*)$
-        
-
-**Worked Example: Viterbi Algorithm for $O = (A, B)$**
-
-**1. Initialization ($t=1$, Obs=A):**
-
-- $\delta_1(1) = \pi_1 \cdot b_1(A) = 0.8 \cdot 0.5 = 0.4$
-    
-    - $\psi_1(1) = 0$
-        
-- $\delta_1(2) = \pi_2 \cdot b_2(A) = 0.2 \cdot 0.2 = 0.04$
-    
-    - $\psi_1(2) = 0$
-        
-
-**2. Induction ($t=2$, Obs=B):**
-
-- **For S1 ($j=1$):**
-    
-    - Path from S1: $\delta_1(1) a_{11} = 0.4 \cdot 0.6 = 0.24$
-        
-    - Path from S2: $\delta_1(2) a_{21} = 0.04 \cdot 0.3 = 0.012$
-        
-    - $\delta_2(1) = \max(0.24, 0.012) \cdot b_1(B) = 0.24 \cdot 0.5 = 0.12$
-        
-    - $\psi_2(1) = S1$ (because 0.24 from S1 was the max)
-        
-- **For S2 ($j=2$):**
-    
-    - Path from S1: $\delta_1(1) a_{12} = 0.4 \cdot 0.4 = 0.16$
-        
-    - Path from S2: $\delta_1(2) a_{22} = 0.04 \cdot 0.7 = 0.028$
-        
-    - $\delta_2(2) = \max(0.16, 0.028) \cdot b_2(B) = 0.16 \cdot 0.8 = 0.128$
-        
-    - $\psi_2(2) = S1$ (because 0.16 from S1 was the max)
-        
-
-**3. Termination & Backtracking:**
-
-- **Probability:** $P^* = \max(\delta_2(1), \delta_2(2)) = \max(0.12, 0.128) = 0.128$
-    
-- **Best last state ($t=2$):** $q_2^* = \arg\max(0.12, 0.128) = S2$
-    
-- **Backtrack ($t=1$):** $q_1^* = \psi_2(q_2^*) = \psi_2(S2) = S1$
-    
-- **Best Path:** $(S1, S2)$
-    
-
-### Practice Problem: Viterbi Algorithm
-
-**Problem:** Using the same HMM, find the most likely state sequence and its probability for $O = (B, A)$.
-
-Solution:
-
-1. Initialization ($t=1$, Obs=B):
-
-- $\delta_1(1) = \pi_1 \cdot b_1(B) = 0.8 \cdot 0.5 = 0.4$
-    
-    - $\psi_1(1) = 0$
-        
-- $\delta_1(2) = \pi_2 \cdot b_2(B) = 0.2 \cdot 0.8 = 0.16$
-    
-    - $\psi_1(2) = 0$
-        
-
-**2. Induction ($t=2$, Obs=A):**
-
-- **For S1 ($j=1$):**
-    
-    - Paths: $\max(\delta_1(1) a_{11}, \delta_1(2) a_{21}) = \max(0.4 \cdot 0.6, 0.16 \cdot 0.3) = \max(0.24, 0.048)$
-        
-    - $\delta_2(1) = 0.24 \cdot b_1(A) = 0.24 \cdot 0.5 = 0.12$
-        
-    - $\psi_2(1) = S1$
-        
-- **For S2 ($j=2$):**
-    
-    - Paths: $\max(\delta_1(1) a_{12}, \delta_1(2) a_{22}) = \max(0.4 \cdot 0.4, 0.16 \cdot 0.7) = \max(0.16, 0.112)$
-        
-    - $\delta_2(2) = 0.16 \cdot b_2(A) = 0.16 \cdot 0.2 = 0.032$
-        
-    - $\psi_2(2) = S1$
-        
-
-**3. Termination & Backtracking:**
-
-- **Probability:** $P^* = \max(\delta_2(1), \delta_2(2)) = \max(0.12, 0.032) = 0.12$
-    
-- **Best last state ($t=2$):** $q_2^* = \arg\max(0.12, 0.032) = S1$
-    
-- **Backtrack ($t=1$):** $q_1^* = \psi_2(q_2^*) = \psi_2(S1) = S1$
-    
-- **Best Path:** $(S1, S1)$
     
 
 ---
