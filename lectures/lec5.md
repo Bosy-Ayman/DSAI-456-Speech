@@ -248,6 +248,7 @@ layout: top-title
 ## Output
 The likelihood $P(O \mid \lambda)$ which is the probability that model $\lambda$ produces $O$
 
+
 ---
 layout: top-title 
 ---
@@ -260,13 +261,13 @@ layout: top-title
 
 - The observation could be generated from ==any== possible state sequence $Q = (q_1, q_2, \ldots, q_T)$
 
-<div style="width: 80%; margin: auto;">
+<div style="width: 60%; margin: auto;">
 
 ![alt text](./images/lec5_possible_states.png)
 
 </div>
 
-<v-click>
+<v-click> 
 
 $$
 \begin{align*}
@@ -274,13 +275,13 @@ P(O \mid \lambda) &= \sum_{all \, Q} P(O, Q \mid \lambda) \\
 &= \sum_{all \, Q} P(O \mid Q, \lambda)P(Q|\lambda)
 \end{align*}
 $$
-</v-click>
+
+</v-click> 
 
 <StickyNote color="red-light" textAlign="left" width="180px" v-drag="[730,220,180,100,20]">
 
 There are $N^T$ possible state sequences
 </StickyNote>
-
 
 
 ---
