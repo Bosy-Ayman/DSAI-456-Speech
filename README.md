@@ -33,7 +33,7 @@ Week | Date |Topic | Contents | Lecture | Assignment
 6| 10-28 | HMM | Hidden Markov models, evaluation problem | [Lecture 5](lectures/lec5.md) | No assignment as preparation for the quiz
 7| 11-4 | HMM | Evaluation problem, direct computation and forward algorithm | [Lecture 6](lectures/lec6.md) | No assignment as preparation for the midterm
 8| 11-11 | Midterm | | | 
-9| 11-4 | HMM | Decoding problem, direct and Viterbi algorithm | [Lecture 7](lectures/lec7.md) | [Assignment 5](assignments/assign5.md)
+9| 11-18 | HMM | Decoding problem, direct and Viterbi algorithm | [Lecture 7](lectures/lec7.md) | [Assignment 5](assignments/assign5.md)
 10|  | CTC | Connectionist temporal classification overview,  training and inference | [Lecture XX] | [Assignment XX]
 11|  | CNN, Enc-Dec | Convolution neural network  for audio and ASR evaluation, Encoder decoder architecture for audio, training, inference, and evaluation | [Lecture XX] | [Assignment XX]
 12|  | CTC | CTC hybrid with Enc-Dec and RNN| [Lecture XX] | [Assignment XX]
