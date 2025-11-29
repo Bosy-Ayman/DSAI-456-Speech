@@ -26,10 +26,10 @@ To replicate your previous HMM-based assignment using CTC for word recognition o
 
 - Task:
   - Load TIMIT utterances and phoneme labels.
-	- Extract MFCCs for each utterance.
-	- Prepare training, development, and test sets.
-	- Implement a simple LSTM with CTC loss. Implement the loss and decoding yourself for educational purposes. Train the model on the training set.
-	- Implement your own CTC forward and decoding functions. Implement the forward pass for CTC to compute the probability of a given phoneme sequence given the acoustic features. This involves computing forward probabilities for all valid alignments. Implement the Viterbi-like decoding for CTC (often called “CTC beam search”) to find the most likely phoneme sequence. This requires dynamic programming over possible alignments
-	- Evaluate on the test set by computing the likelihood of phoneme sequences and the most likely decoded sequence Monitor phoneme error rate (PER) or word error rate (WER) for evaluation.
-	- Visualize the learned alignment (e.g., by plotting the alignment probabilities or the most likely path).
+  - Extract MFCCs for each utterance.
+  - Prepare training, development, and test sets.
+  - Implement a simple LSTM with CTC loss. Implement the loss and decoding yourself for educational purposes. Train the model on the training set.
+  - Implement your own CTC forward and decoding functions. Implement the forward pass for CTC to compute the probability of a given phoneme sequence given the acoustic features. This involves computing forward probabilities for all valid alignments. Implement the Viterbi-like decoding for CTC (often called “CTC beam search”) to find the most likely phoneme sequence. This requires dynamic programming over possible alignments
+  - Evaluate on the test set by computing the likelihood of phoneme sequences and the most likely decoded sequence Monitor phoneme error rate (PER) or word error rate (WER) for evaluation.
+  - Visualize the learned alignment (e.g., by plotting the alignment probabilities or the most likely path).
 
