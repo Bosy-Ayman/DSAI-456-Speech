@@ -34,13 +34,13 @@ Week | Date |Topic | Contents | Lecture | Assignment
 7| 11-4 | HMM | Evaluation problem, direct computation and forward algorithm | [Lecture 6](lectures/lec6.md) | No assignment as preparation for the midterm
 8| 11-11 | Midterm | | | 
 9| 11-18 | HMM | Decoding problem, direct and Viterbi algorithm | [Lecture 7](lectures/lec7.md) | [Assignment 5](assignments/assign5.md)
-10|  | CTC | Connectionist temporal classification overview,  training and inference | [Lecture XX] | [Assignment XX]
-11|  | CNN, Enc-Dec | Convolution neural network  for audio and ASR evaluation, Encoder decoder architecture for audio, training, inference, and evaluation | [Lecture XX] | [Assignment XX]
-12|  | CTC | CTC hybrid with Enc-Dec and RNN| [Lecture XX] | [Assignment XX]
-13|  | TTS | Text to speech (TTS), use audio codec to learn tokens, ENCODEC model, vector quantization, residual vector quantization, generating audio with 2-stage language model (VALL-E), evaluation | [Lecture XX] | [Assignment XX]
-14|  | Paper Review | Students review recent papers about speech regonition and present to the entire class | | 
-15|  | Paper Review | Students review recent papers about speech regonition and present to the entire class | | 
-16|  | Final | | | 
+10| 11-25 | CTC | Connectionist temporal classification overview,  training and inference |  Delivered by Eng. Ossama Ghandour | [Assignment 6](assignments/assign6.md)
+11| 12-2 | CNN, Enc-Dec | Convolution neural network  for audio and ASR evaluation, Encoder decoder architecture for audio, training, inference, and evaluation | [Lecture XX] | [Assignment XX]
+12| 12-9 | CTC | CTC hybrid with Enc-Dec and RNN| [Lecture XX] | [Assignment XX]
+13| 12-16 | TTS | Text to speech (TTS), use audio codec to learn tokens, ENCODEC model, vector quantization, residual vector quantization, generating audio with 2-stage language model (VALL-E), evaluation | [Lecture XX] | [Assignment XX]
+14| 12-23 | Paper Review | Students review recent papers about speech regonition and present to the entire class | | 
+15| 12-30 | Paper Review | Students review recent papers about speech regonition and present to the entire class | | 
+16| 1-7 | Final | | | 
 
 Please note that the syllabus content is subject to change throughout the semester. Topics may be added or removed based on the instructor’s discretion, student progress, and available time. Your feedback and participation will inform these adjustments to ensure alignment with course goals and schedule constraints.
 
