@@ -10,7 +10,7 @@
 **HMM for Word Recognition**
 
 - Objectives:
-    The objective of this assignment is to implement the forward and Viterbi algorithms to build HMM for speaker recognition. We need to gain skills on how to implement a dynamic programming algorithm. 
+    The objective of this assignment is to implement the forward and Viterbi algorithms to build HMM for word recognition. We need to gain skills on how to implement a dynamic programming algorithm. 
 
 - Dataset:
     The [TIMIT Acoustic-Phonetic Continuous Speech Corpus](https://catalog.ldc.upenn.edu/LDC93S1) contains recordings of phonetically rich sentences spoken by 630 speakers across 8 major American English dialects. It provides detailed manual phoneme-level alignments with precise start and end times for training HMMs to model phoneme sequences accurately. It also  includes predefined training, development, and test sets for reproducible experiments and model comparisons.
