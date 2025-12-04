@@ -35,9 +35,9 @@ Week | Date |Topic | Contents | Lecture | Assignment
 8| 11-11 | Midterm | | | 
 9| 11-18 | HMM | Decoding problem, direct and Viterbi algorithm | [Lecture 7](lectures/lec7.md) | [Assignment 5](assignments/assign5.md)
 10| 11-25 | CTC | Connectionist temporal classification overview,  training and inference |  Delivered by Eng. Ossama Ghandour | [Assignment 6](assignments/assign6.md)
-11| 12-2 | CNN, Enc-Dec | Convolution neural network  for audio and ASR evaluation, Encoder decoder architecture for audio, training, inference, and evaluation | [Lecture XX] | [Assignment XX]
-12| 12-9 | CTC | CTC hybrid with Enc-Dec and RNN| [Lecture XX] | [Assignment XX]
-13| 12-16 | TTS | Text to speech (TTS), use audio codec to learn tokens, ENCODEC model, vector quantization, residual vector quantization, generating audio with 2-stage language model (VALL-E), evaluation | [Lecture XX] | [Assignment XX]
+11| 12-2 | CNN, Enc-Dec | Convolution neural network  for audio and ASR evaluation, Encoder decoder architecture for audio, training, inference, and evaluation | [Lecture XX] | No assignment
+12| 12-9 | CTC | LAB QUIZ, CTC hybrid with Enc-Dec and RNN| [Lecture XX] | No assignment
+13| 12-16 | TTS | FINAL LAB, Text to speech (TTS), use audio codec to learn tokens, ENCODEC model, vector quantization, residual vector quantization, generating audio with 2-stage language model (VALL-E), evaluation | [Lecture XX] | No assignment
 14| 12-23 | Paper Review | Students review recent papers about speech regonition and present to the entire class | | 
 15| 12-30 | Paper Review | Students review recent papers about speech regonition and present to the entire class | | 
 16| 1-7 | Final | | | 
