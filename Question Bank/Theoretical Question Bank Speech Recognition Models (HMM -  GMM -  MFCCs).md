@@ -377,7 +377,7 @@ These questions ask you to compare and contrast key concepts.
     
     1. **E-Step (Expectation):** Given the current model parameters ($\pi_k, \mu_k, \Sigma_k$), compute the "expected" assignments. This means **evaluating the responsibilities** ($r_{nk}$) for every data point $n$ and every component $k$. This step calculates $P(k | \mathbf{x}_n, \lambda)$, the "soft" probability of component $k$ being responsible for $\mathbf{x}_n$.
         
-    2. **M-Step (Maximization):** Given these fixed responsibilities, update the model parameters to **maximize** the expected log-likelihood. This means **re-estimating the model parameters** ($\pi_k^{new}, \mu_k^{new}, \Sigma_k^{new}$) using the responsibilities as weights. These two steps are repeated until the model parameters converge (i.e., they don't change significantly).
+    2. **M-Step (Maximization):** Given these fixed responsibilities, update the model parameters to ==**maximize** the expected log-likelihood.== This means **re-estimating the model parameters** ($\pi_k^{new}, \mu_k^{new}, \Sigma_k^{new}$) using the responsibilities as weights. These two steps are repeated until the model parameters converge (i.e., they don't change significantly).
         
 5. **Write the M-step update formulas** for the mean ($\mu_k$), covariance ($\Sigma_k$), and mixture weight ($\pi_k$) of the $k$-th component in a GMM. _(Based on Sec 11.3, Eq 11.54-56; Sec 2.3, Eq 2.10-12)_
     
