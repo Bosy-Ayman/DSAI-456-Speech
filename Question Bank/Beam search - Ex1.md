@@ -1,10 +1,10 @@
+```
 Time:  0    1    2    3    4    5    6
 Pick:  D    D    -    A    A    -    R  ...
        ↓    ↓    ↓    ↓    ↓    ↓    ↓
      0.6  0.7  0.8  0.6  0.7  0.5  0.6
-
+```
 After collapse: D - A - R → "DAR"
-
 
 **Problem:** This is locally optimal but might miss the globally best path!
 
@@ -144,30 +144,30 @@ Beam after t=2:
 ### **t=3: Final Step**
 
 #### Expand sequence 1: `"AB"` (last = B)
-
+```
 "AB"→A:  prob = 0.144 × 0.2 = 0.0288,  collapse to "ABA"
 "AB"→B:  prob = 0.144 × 0.1 = 0.0144,  collapse to "AB"
 "AB"→C:  prob = 0.144 × 0.5 = 0.0720,  collapse to "ABC"
 "AB"→-:  prob = 0.144 × 0.2 = 0.0288,  collapse to "AB"
-
+```
 
 #### Expand sequence 2: `"B"` (last = B)
-
+```
 "B"→A:  prob = 0.108 × 0.2 = 0.0216,  collapse to "BA"
 "B"→B:  prob = 0.108 × 0.1 = 0.0108,  collapse to "B"
 "B"→C:  prob = 0.108 × 0.5 = 0.0540,  collapse to "BC"
 "B"→-:  prob = 0.108 × 0.2 = 0.0216,  collapse to "B"
-
+```
 
 **All candidates:**
-
+```
 "ABC":  0.0720  ← Best!
 "BC":   0.0540
 "AB":   0.0288 + 0.0144 = 0.0432
 "ABA":  0.0288
 "B":    0.0108 + 0.0216 = 0.0324
 "BA":   0.0216
-
+```
 
 **Keep top 2:**
 
@@ -185,14 +185,14 @@ Final Beam:
 ---
 
 ## Visual Summary
-
+```
 t=0          t=1          t=2          t=3
  
 ""(0.6)  →  "A"(0.24) → "AB"(0.14) → "ABC"(0.072) ✓ Best!
   ↓          ↓           ↓
 "B"(0.2)  → ""(0.18)  → "B"(0.11)  → "BC"(0.054)
 
-
+```
 At each step, we keep the top K sequences (beam width = 2).
 
 ---

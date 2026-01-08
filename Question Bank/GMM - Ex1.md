@@ -49,13 +49,12 @@ The 1D Gaussian formula is $\mathcal{N}(x) \propto \exp\left(-\frac{(x-\mu)^{2}}
 
 With our parameters, this is $\exp\left(-\frac{(x_n-\mu_k)^{2}}{4}\right)$.
 
-| Data Point ($x_n$) | Likelihood (Comp 1) $\mathcal{N}(x_n | \mu_1=2, \sigma^2=2)$ | Likelihood (Comp 2) $\mathcal{N}(x_n | \mu_2=8, \sigma^2=2)$ |
+| Data Point ($x_n$) | Likelihood (Comp 1) $\mathcal{N}(x_n \| \mu_1=2, \sigma^2=2)$ | Likelihood (Comp 2) $\mathcal{N}(x_n \| \mu_2=8, \sigma^2=2)$ \| |
+| ------------------ | ------------------------------------------------------------- | ---------------------------------------------------------------- |
+| $x_1=1$            | $\exp(-\frac{(1-2)^2}{4}) = \exp(-0.25) \approx 0.779$        | $\exp(-\frac{(1-8)^2}{4}) = \exp(-12.25) \approx 0.000$          |
+| $x_2=2$            | $\exp(-\frac{(2-2)^2}{4}) = \exp(0) = 1.000$                  | $\exp(-\frac{(2-8)^2}{4}) = \exp(-9) \approx 0.000$              |
+|                    |                                                               |                                                                  |
 
-| :--- | :--- | :--- |
-
-| $x_1=1$ | $\exp(-\frac{(1-2)^2}{4}) = \exp(-0.25) \approx 0.779$ | $\exp(-\frac{(1-8)^2}{4}) = \exp(-12.25) \approx 0.000$ |
-
-| $x_2=2$ | $\exp(-\frac{(2-2)^2}{4}) = \exp(0) = 1.000$ | $\exp(-\frac{(2-8)^2}{4}) = \exp(-9) \approx 0.000$ |
 
 | $x_3=5$ | $\exp(-\frac{(5-2)^2}{4}) = \exp(-2.25) \approx 0.105$ | $\exp(-\frac{(5-8)^2}{4}) = \exp(-2.25) \approx 0.105$ |
 
@@ -72,13 +71,13 @@ Now we calculate the responsibilities ($r_{nk}$). Since we guessed $\pi_1 = \pi_
 
 Here are the final responsibilities for all points:
 
-|**Data Point (xn​)**|**Resp. rn1​ (Comp 1)**|**Resp. rn2​ (Comp 2)**|
-|---|---|---|
-|**$x_1=1$**|1.000|0.000|
-|**$x_2=2$**|1.000|0.000|
-|**$x_3=5$**|**0.500**|**0.500**|
-|**$x_4=8$**|0.000|1.000|
-|**$x_5=9$**|0.000|1.000|
+| **Data Point (xn​)** | **Resp. rn1​ (Comp 1)** | **Resp. rn2​ (Comp 2)** |
+| -------------------- | ----------------------- | ----------------------- |
+| **$x_1=1$**          | 1.000                   | 0.000                   |
+| **$x_2=2$**          | 1.000                   | 0.000                   |
+| **$x_3=5$**          | **0.500**               | **0.500**               |
+| **$x_4=8$**          | 0.000                   | 1.000                   |
+| **$x_5=9$**          | 0.000                   | 1.000                   |
 
 **E-Step Takeaway:** The points $1$ and $2$ belong to Component 1. The points $8$ and $9$ belong to Component 2. The middle point $5$ is **equally (50/50) responsible** by both components.
 

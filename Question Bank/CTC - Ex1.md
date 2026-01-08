@@ -1,7 +1,4 @@
-I'll create a comprehensive explanation of the CTC (Connectionist Temporal Classification) Forward Algorithm for loss calculation, following the same detailed style!
-
----
-
+Link for visualization :[‎Visualize CTC](https://gemini.google.com/share/fb60ccc95a67)
 # CTC Forward Algorithm: Loss Calculation Explained
 
 ## The Problem CTC Solves

@@ -1,5 +1,3 @@
-# High Fidelity Neural Audio Compression: Complete Deep Dive
-
 ## Part 1: The Problem Statement (Mathematical Foundation)
 
 ### 1.1 Audio Compression Fundamentals

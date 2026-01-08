@@ -235,11 +235,11 @@ These questions ask you to compare and contrast key concepts.
         
         - [ ] (voiced) and [t] (unvoiced)
             
-        - [z] (voiced) and [s] (unvoiced)
+        - [ ] (voiced) and [s] (unvoiced)
             
-        - [b] (voiced) and [p] (unvoiced)
+        - [ ] (voiced) and [p] (unvoiced)
             
-        - [v] (voiced) and [f] (unvoiced)
+        - [ ] (voiced) and [f] (unvoiced)
             
 7. Compare a "stop" consonant (like [p] or [d]) with a "fricative" consonant (like [s] or [f]). How do their acoustic properties differ in a waveform or spectrogram?
     
