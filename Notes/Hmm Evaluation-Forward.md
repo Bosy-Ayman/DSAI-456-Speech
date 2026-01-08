@@ -35,7 +35,7 @@ States: S₁ (fair), S₂ (biased)
 
 α₁(1) = π₁ × b₁(H) = 0.6 × 0.5 = 0.30
 α₁(2) = π₂ × b₂(H) = 0.4 × 0.9 = 0.36
-```F
+```
 
 Interpretation:
 - α₁(1) = 0.30: "Probability of starting in S₁ AND seeing H"
